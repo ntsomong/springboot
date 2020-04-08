@@ -29,8 +29,8 @@
 .article-write-box>form>table td textarea {
 	height: 300px;
 }
-
 </style>
+
 <body>
 	<div style="text-align:center;">
 	<h1>게시글 쓰기</h1>
@@ -41,8 +41,26 @@
 		<a href="/article/write">글쓰기</a>
 	</div>
 
+	<script>
+	function submitWriteForm(form) {
+		form.title.value = form.title.value.trim();
+		if (form.title.value.length == 0) {
+			alert('제목을 입력해 주세요.');
+			form.title.focus();	
+			return false;
+		}
+		form.body.value = form.body.value.trim();
+		if (form.body.value.length == 0) {
+			alert('내용을 입력해주세요.');
+			form.body.focus();
+			return false;
+		}
+		form.submit();
+	}
+	</script>
+
 	<div class="con article-write-box">
-		<form action="">
+		<form onsubmit="submitWriteForm(this); return false;" action="/article/doWrite" method="POST">
 			<table>
 				<colgroup>
 					<col width="100" />

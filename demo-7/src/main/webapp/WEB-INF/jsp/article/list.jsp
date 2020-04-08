@@ -28,7 +28,8 @@
 	</div>
 	
 	<div class="con menu-box">
-		<a href="/article/list">글 리스트</a>
+		<a href="/article/list">리스트</a>
+		<a href="/article/write">글쓰기</a>
 	</div>
 
 	<div class="con article-list-box">
