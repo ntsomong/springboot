@@ -24,7 +24,7 @@
 <body>
 	<div style="text-align:center;">
 	<h1>게시판 리스트</h1>
-	Age is ${age}. <br> articles is --->  ${articles}
+	<!-- Age is ${age}. <br> articles is ${articles} -->
 	</div>
 	
 	<div class="con menu-box">

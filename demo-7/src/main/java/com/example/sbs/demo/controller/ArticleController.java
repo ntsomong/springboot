@@ -37,7 +37,8 @@ public class ArticleController {
 	@RequestMapping("/article/doWrite")
 	@ResponseBody
 	public Map<String, Object> doWrite(@RequestParam Map<String, Object> param) {
+		Map<String, Object> rs = articleService.write(param);
 		
-		return param;
+		return rs;
 	}
 }
