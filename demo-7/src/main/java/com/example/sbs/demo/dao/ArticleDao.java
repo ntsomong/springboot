@@ -14,7 +14,6 @@ public interface ArticleDao {
 
 	void write(Map<String, Object> param);
 
-
 }
 
 /*

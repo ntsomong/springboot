@@ -36,9 +36,23 @@ public class ArticleController {
 	
 	@RequestMapping("/article/doWrite")
 	@ResponseBody
-	public Map<String, Object> doWrite(@RequestParam Map<String, Object> param) {
-		Map<String, Object> rs = articleService.write(param);
+	//public Map<String, Object> doWrite(@RequestParam Map<String, Object> param) {
+	//	Map<String, Object> rs = articleService.write(param);	
+	//	return rs;
+
+	public String doWrite(@RequestParam Map<String, Object> param) {
+		Map<String, Object> rs = articleService.write(param);	
 		
-		return rs;
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("<script>");
+		sb.append("alert('" + rs.get("msg") + "');");
+		sb.append("location.replace('/article/list');");
+		sb.append("</script>");
+				
+		return sb.toString();
+
+		
 	}
+	
 }
