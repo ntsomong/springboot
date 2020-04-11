@@ -10,5 +10,7 @@ public interface ArticelService {
 	List<Article> getArticles();
 
 	Map<String, Object> write(Map<String, Object> param);
+
+	Article getArticle(int id);
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.sbs.demo.dto.Article;
 
@@ -14,16 +15,16 @@ public interface ArticleDao {
 
 	void write(Map<String, Object> param);
 
+	Article getArticle(@Param(value = "ID") int id);
+
 }
 
 /*
 @Autowired	
 public List<Article> getArticles() {
 	
-	List<Article> articles = new ArrayList<>();
-	
+	List<Article> articles = new ArrayList<>();	
 	Article article1 = new Article(1, "00", "t", "b");
-	
 	articles.add(article1);
 	
 	return articles;

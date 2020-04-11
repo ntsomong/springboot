@@ -28,8 +28,7 @@
 	</div>
 	
 	<div class="con menu-box">
-		<a href="/article/list">리스트</a>
-		<a href="/article/write">글쓰기</a>
+		<a href="/article/list">리스트</a> <a href="/article/write">글쓰기</a>
 	</div>
 
 	<div class="con article-list-box">
@@ -53,7 +52,7 @@
 					<tr>
 						<td>${article.id}</td>
 						<td>${article.regDate}</td>
-						<td><a href="#">${article.title}</a></td>
+						<td><a href="./detail?id=${article.id}">${article.title}</a></td>
 						<td>${article.body}</td>
 					</tr>
 				</c:forEach>

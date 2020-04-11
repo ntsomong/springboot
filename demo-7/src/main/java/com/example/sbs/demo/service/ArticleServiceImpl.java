@@ -38,5 +38,10 @@ public class ArticleServiceImpl implements ArticelService {
 		return rs;
 	}
 
+	@Override
+	public Article getArticle(int id) {
+		return articleDao.getArticle(id);
+	}
+
 
 }

@@ -12,4 +12,8 @@ public class Article {
 	private String regDate;
 	private String title;
 	private String body;
+	
+	public String getBodyForPrint() {
+		return body.replaceAll("\n", "<br>");
+	}
 }
