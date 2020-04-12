@@ -9,19 +9,30 @@
 		WHERE id = #{ID}
 	</select>
 
-	<select id="getArticles" parameterType="map"
-		resultType="Article">
+	<select id="getArticles" parameterType="map" resultType="Article">
 		SELECT id, regDate, title, body
 		FROM article
 		ORDER BY id DESC
 	</select>
 
-	<insert id="write" parameterType="map" useGeneratedKeys="true"
-		keyProperty="id">
+	<insert id="write" parameterType="map" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO article
 		SET regDate = NOW(),
 		title = #{title},
 		body = #{body}
 	</insert>
+	
+	<delete id="remove">
+		DELETE  
+		FROM article
+		WHERE id = #{ID}	
+	</delete>
+	
+	<update id="modify">
+		UPDATE article
+		SET title = #{title},
+		body = #{body}
+		WHERE id = #{id}
+	</update>
 	
 </mapper>

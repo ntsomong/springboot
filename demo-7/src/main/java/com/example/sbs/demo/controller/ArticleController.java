@@ -39,12 +39,10 @@ public class ArticleController {
 	//public Map<String, Object> doWrite(@RequestParam Map<String, Object> param) {
 	//	Map<String, Object> rs = articleService.write(param);	
 	//	return rs;
-
 	public String doWrite(@RequestParam Map<String, Object> param) {
 		Map<String, Object> rs = articleService.write(param);	
 		
 		StringBuilder sb = new StringBuilder();
-		
 		sb.append("<script>");
 		sb.append("alert('" + rs.get("msg") + "');");
 		sb.append("location.replace('/article/list');");
@@ -59,6 +57,42 @@ public class ArticleController {
 		model.addAttribute("article", article);
 		
 		return "article/detail";
+	}
+	
+	@RequestMapping("/article/doDelete")
+	@ResponseBody
+	public String doDelete(int id) {
+		Map<String, Object> rs = articleService.delete(id);	
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("<script>");
+		sb.append("alert('" + rs.get("msg") + "');");
+		sb.append("location.replace('/article/list');");
+		sb.append("</script>");
+
+			return sb.toString();
+	}
+
+	@RequestMapping("/article/modify")
+	public String showModify(Model model, int id) {
+		Article article = articleService.getArticle(id);
+		model.addAttribute("article", article);
+		
+		return "article/modify";
+	}
+	
+	@RequestMapping("/article/doModify")
+	@ResponseBody
+	public String doModify(int id) {
+		Map<String, Object> rs = articleService.modify(id);	
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("<script>");
+		sb.append("alert('" + rs.get("msg") + "');");
+		sb.append("location.replace('/article/list');");
+		sb.append("</script>");
+
+			return sb.toString();
 	}
 	
 }

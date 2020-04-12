@@ -37,14 +37,14 @@
 				<col width="10" />
 				<col width="200" />
 				<col />
-				<col width="400" />
+				<col width="150" />
 			</colgroup>
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>날짜</th>
 					<th>제목</th>
-					<th>내용</th>
+					<th>비고</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,7 +53,10 @@
 						<td>${article.id}</td>
 						<td>${article.regDate}</td>
 						<td><a href="./detail?id=${article.id}">${article.title}</a></td>
-						<td>${article.body}</td>
+						<td><a href="./modify?id=${article.id}">수정하기</a> 
+							<a href="./doDelete?id=${article.id}" onclick="if ( confirm('정말로 삭제하시겠습니까?') == false ) return false;">
+							삭제</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

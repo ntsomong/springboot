@@ -12,5 +12,9 @@ public interface ArticelService {
 	Map<String, Object> write(Map<String, Object> param);
 
 	Article getArticle(int id);
-	
+
+	Map<String, Object> delete(int id);
+
+	Map<String, Object> modify(int id);
+
 }

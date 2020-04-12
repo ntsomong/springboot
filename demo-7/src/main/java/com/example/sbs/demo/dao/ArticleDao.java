@@ -17,6 +17,10 @@ public interface ArticleDao {
 
 	Article getArticle(@Param(value = "ID") int id);
 
+	void remove(@Param(value = "ID") int id);
+
+	void modify(@Param(value = "ID") int id);
+
 }
 
 /*

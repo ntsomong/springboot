@@ -43,5 +43,28 @@ public class ArticleServiceImpl implements ArticelService {
 		return articleDao.getArticle(id);
 	}
 
+	@Override
+	public Map<String, Object> delete(int id) {
+		articleDao.remove(id);
+
+		Map<String, Object> rs = new HashMap<String, Object>();
+		rs.put("result code", "S-1");
+		rs.put("id", id);
+		rs.put("msg", id+"번 게시글이 삭제되었습니다.");
+		
+		return rs;
+	}
+
+	@Override
+	public Map<String, Object> modify(int id) {
+		articleDao.modify(id);
+
+		Map<String, Object> rs = new HashMap<String, Object>();
+		rs.put("result code", "S-1");
+		rs.put("id", id);
+		rs.put("msg", id+"번 게시글 변경되었습니다.");
+		
+		return rs;	}
+
 
 }
