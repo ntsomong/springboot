@@ -15,6 +15,6 @@ public interface ArticelService {
 
 	Map<String, Object> delete(int id);
 
-	Map<String, Object> modify(int id);
+	Map<String, Object> modify(Map<String, Object> param);
 
 }

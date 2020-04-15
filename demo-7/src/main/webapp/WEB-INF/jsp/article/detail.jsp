@@ -1,35 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>커뮤니티 - 게시물 상세</title>
-</head>
-<style>
-.con {
-	width: 1000px;
-	margin: 0 auto;
-}
-.article-detail-box>table {
-	width: 100%;
-	border-collapse: collapse;;
-}
-.article-detail-box>table th, .article-detail-box>table td {
-	border: 1px solid black;
-	padding: 15px;
-}
-</style>
-</head>
-<body>
-	<h1>${article.id}번 게시물</h1>
 
-	<div class="con menu-box">
-		<a href="/article/list">리스트</a> <a href="/article/write">글쓰기</a>
-	</div>
+<c:set var="pageTitle" value="${article.id}번 게시물 " />
 
-	<div class="con article-detail-box">
+<%@ include file="../part/head.jspf" %>
+
+	<div class="con table-box">
 		<table>
 			<colgroup>
 				<col width="100" />
@@ -46,5 +23,5 @@
 			</tbody>
 		</table>
 	</div>
-</body>
-</html>
+
+<%@ include file="../part/foot.jspf" %>

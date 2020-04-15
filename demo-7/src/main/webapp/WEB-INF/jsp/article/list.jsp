@@ -1,37 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>커뮤니티 게시판</title>
-</head>
-<style>
-.con {
-	width: 1000px;
-	margin: 0 auto;
-}
-.article-list-box>table {
-	width: 100%;
-	border-collapse: collapse;;
-}
-.article-list-box>table th, .article-list-box>table td {
-	border: 1px solid black;
-	padding: 15px;
-}
-</style>
-<body>
-	<div style="text-align:center;">
-	<h1>게시판 리스트</h1>
-	<!-- Age is ${age}. <br> articles is ${articles} -->
-	</div>
-	
-	<div class="con menu-box">
-		<a href="/article/list">리스트</a> <a href="/article/write">글쓰기</a>
-	</div>
 
-	<div class="con article-list-box">
+<c:set var="pageTitle" value="게시판 리스트" />
+
+<%@ include file="../part/head.jspf" %>
+
+	<div class="con table-box">
 		<table>
 			<colgroup>
 				<col width="10" />
@@ -62,5 +37,5 @@
 			</tbody>
 		</table>
 	</div>
-</body>
-</html>
+
+<%@ include file="../part/foot.jspf" %>

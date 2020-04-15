@@ -56,8 +56,10 @@ public class ArticleServiceImpl implements ArticelService {
 	}
 
 	@Override
-	public Map<String, Object> modify(int id) {
-		articleDao.modify(id);
+	public Map<String, Object> modify(Map<String, Object> param) {
+		articleDao.modify(param);
+
+		int id = Integer.parseInt((String) param.get("id"));
 
 		Map<String, Object> rs = new HashMap<String, Object>();
 		rs.put("result code", "S-1");

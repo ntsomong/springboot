@@ -1,44 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시글 쓰기</title>
-</head>
-<style>
-.con {
-	width: 1000px;
-	margin: 0 auto;
-}
-.article-write-box>form>table {
-	width: 100%;
-	border-collapse: collapse;;
-}
-.article-write-box>form>table th, .article-write-box>form>table td {
-	border: 1px solid black;
-	padding: 15px;
-}
 
-.article-write-box>form>table td input[type="text"],
-.article-write-box>form>table td textarea {
-	display: block;
-	width: 90%;
-}
-.article-write-box>form>table td textarea {
-	height: 300px;
-}
-</style>
+<c:set var="pageTitle" value="게시글 쓰기" />
 
-<body>
-	<div style="text-align:center;">
-	<h1>게시글 쓰기</h1>
-	</div>
-	
-	<div class="con menu-box">
-		<a href="/article/list">리스트</a> <a href="/article/write">글쓰기</a>
-	</div>
+<%@ include file="../part/head.jspf" %>
 
 	<script>
 	function submitWriteForm(form) {
@@ -58,8 +24,9 @@
 	}
 	</script>
 
-	<div class="con article-write-box">
-		<form onsubmit="submitWriteForm(this); return false;" action="/article/doWrite" method="POST">
+	<div class="con">
+		<form class="table-box form form-type-1" 
+		onsubmit="submitWriteForm(this); return false;" action="/article/doWrite" method="POST">
 			<table>
 				<colgroup>
 					<col width="100" />
@@ -90,5 +57,5 @@
 			</table>
 		</form>
 	</div>
-</body>
-</html>
+
+<%@ include file="../part/foot.jspf" %>

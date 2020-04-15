@@ -19,7 +19,7 @@ public interface ArticleDao {
 
 	void remove(@Param(value = "ID") int id);
 
-	void modify(@Param(value = "ID") int id);
+	void modify(Map<String, Object> param);
 
 }
 

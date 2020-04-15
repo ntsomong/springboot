@@ -83,8 +83,8 @@ public class ArticleController {
 	
 	@RequestMapping("/article/doModify")
 	@ResponseBody
-	public String doModify(int id) {
-		Map<String, Object> rs = articleService.modify(id);	
+	public String doModify(@RequestParam Map<String, Object> param) {
+		Map<String, Object> rs = articleService.modify(param);	
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("<script>");

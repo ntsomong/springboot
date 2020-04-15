@@ -1,44 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시글 수정</title>
-</head>
-<style>
-.con {
-	width: 1000px;
-	margin: 0 auto;
-}
-.article-modify-box>form>table {
-	width: 100%;
-	border-collapse: collapse;;
-}
-.article-modify-box>form>table th, .article-modify-box>form>table td {
-	border: 1px solid black;
-	padding: 15px;
-}
 
-.article-modify-box>form>table td input[type="text"],
-.article-modify-box>form>table td textarea {
-	display: block;
-	width: 90%;
-}
-.article-modify-box>form>table td textarea {
-	height: 300px;
-}
-</style>
+<c:set var="pageTitle" value="${article.id}번 게시글 수정" />
 
-<body>
-	<div style="text-align:center;">
-	<h1>게시글 수정하기</h1>
-	</div>
-	
-	<div class="con menu-box">
-		<a href="/article/list">리스트</a> <a href="/article/modify">글쓰기</a>
-	</div>
+<%@ include file="../part/head.jspf" %>
 
 	<script>
 	function submitModifyForm(form) {
@@ -58,8 +24,9 @@
 	}
 	</script>
 
-	<div class="con article-modify-box">
-		<form onsubmit="submitModifyForm(this); return false;" action="/article/doModify" method="POST">
+	<div class="con">
+		<form class="table-box form form-type-1" 
+		onsubmit="submitModifyForm(this); return false;" action="/article/doModify" method="POST">
 			<input value="${article.id}" name="id" type="hidden" />
 
 			<table>
@@ -86,9 +53,9 @@
 					<tr>
 						<th>수정</th>
 						<td>
-							<input type="submit" value="수정" />
-							<!-- <button type="button">취소</button> 	-->
+							<input onclick="if ( confirm('${article.id}번 글을 수정하시겠습니까?') == false ) return false;" type="submit" value="수정" />
 							<input onclick="history.back();" type="button" value="취소" /> 
+							
 						</td>
 					</tr>					
 
@@ -96,5 +63,5 @@
 			</table>
 		</form>
 	</div>
-</body>
-</html>
+
+<%@ include file="../part/foot.jspf" %>
