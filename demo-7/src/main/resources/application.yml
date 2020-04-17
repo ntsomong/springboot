@@ -29,7 +29,7 @@ spring:
 mybatis:
   type-aliases-package: com.example.sbs.demo.dto # dto의 풀 패키지 명 입력
 custom:
-  logoText: CUNI # 사이트 명 치환
+  logoText: Community # 사이트 명 치환
   uploadDir: C:/work/abc/uploads # 파일업로드 되는 곳 치환
   emailSender: no-reply@noreply.com # 사이트 메일 발신자 이름으로 치환
   emailSenderName: CUNI Master # 사이트 운영자 명으로 치환

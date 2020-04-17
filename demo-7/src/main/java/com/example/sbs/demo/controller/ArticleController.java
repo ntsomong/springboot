@@ -3,6 +3,8 @@ package com.example.sbs.demo.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,15 +17,21 @@ import com.example.sbs.demo.service.ArticelService;
 
 @Controller
 public class ArticleController {
+	
+	//@Value("${custom.logoText}")
+	//String siteName;
+	
 	@Autowired
 	private ArticelService articleService;
 	
-	@RequestMapping("/article/list")
-	public String showList(Model model) {
+@RequestMapping("/article/list")
+	public String showList(Model model, HttpServletRequest req) {
 		
 		List<Article> articles = articleService.getArticles();
 		
-		model.addAttribute("age", 13);	
+		//req.setAttribute("sName", "TTT");
+		//model.addAttribute("logoText", siteName);
+		//model.addAttribute("age", 13);	
 		model.addAttribute("articles", articles);
 		
 		return "article/list";
