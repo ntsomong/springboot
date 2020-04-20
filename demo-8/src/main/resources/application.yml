@@ -7,7 +7,7 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://127.0.0.1:3306/a5?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC # DB명 치환
+    url: jdbc:log4jdbc:mysql://127.0.0.1:3306/a7?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC # DB명 치환
     username: root # DB아이디 치환
     password:
   servlet:
