@@ -1,8 +1,18 @@
 package com.example.sbs.demo.dao;
 
-import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.Map;
 
-@Component
-public class ArticleDao {
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.sbs.demo.dto.Article;
+
+@Mapper
+public interface ArticleDao {
+
+	List<Article> getArticles();
+
+	void write(Map<String, Object> param);
+	
 
 }

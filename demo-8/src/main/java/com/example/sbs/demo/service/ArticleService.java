@@ -1,14 +1,14 @@
 package com.example.sbs.demo.service;
 
 import java.util.List;
-
-import org.springframework.stereotype.Service;
+import java.util.Map;
 
 import com.example.sbs.demo.dto.Article;
 
-@Service
 public interface ArticleService {
 
 	List<Article> getArticles();
+
+	Map<String, Object> write(Map<String, Object> param);
 
 }
