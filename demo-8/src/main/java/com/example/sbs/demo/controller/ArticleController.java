@@ -19,14 +19,6 @@ public class ArticleController {
 	@Autowired
 	ArticleService articleService;
 
-	@RequestMapping("article/getArticles")
-	@ResponseBody
-	public List<Article> getArticles() {
-		List<Article> articles = articleService.getArticles();
-		
-		return articles;
-	}
-
 	@RequestMapping("article/list")
 	public String showList(Model model) {
 		List<Article> articles = articleService.getArticles();
@@ -35,19 +27,29 @@ public class ArticleController {
 		
 		return "article/list";
 	}
-	
+
+	@RequestMapping("article/getArticles")
+	@ResponseBody
+	public List<Article> getArticles() {
+		List<Article> articles = articleService.getArticles();
+		
+		return articles;
+	}
+
 	@RequestMapping("article/write")
 	public String showWrite() {
 	
 		return "article/write";
 	}
 	
+	/*
 	@RequestMapping("article/doWrite")
 	@ResponseBody
 	public Map<String, Object> doWrite(@RequestParam Map<String, Object> param) {
 		Map<String, Object> rs = articleService.write(param);	
 		return rs;
 	}
+	*/
 	/*
 	@RequestMapping("article/doWrite")	
 	@ResponseBody
@@ -61,17 +63,55 @@ public class ArticleController {
 		return sb.toString();
 	}
 	*/
-	/*
+
 	@RequestMapping("article/doWrite")
 	public String doWrite(Model model, @RequestParam Map<String, Object> param) {
 		Map<String, Object> rs = articleService.write(param);	
 		
-		String url = "/article/detail?id=" + rs.get("id");
+		String redirectUrl = "/article/detail?id=" + rs.get("id");	
+		
 		model.addAttribute("jsAlertMsg", rs.get("msg"));
-		model.addAttribute("jsLocationReplaceUrl", rs.get("msg"));
+		model.addAttribute("jsLocationReplaceUrl", redirectUrl);
 		
 		return "redirect";
 	}
-	*/
+		
+	@RequestMapping("/article/detail")
+	public String showDetail(Model model, int id) {
+		Article article = articleService.getArticle(id);
+		model.addAttribute("article", article);
+		
+		return "article/detail";
+	}
+
+	@RequestMapping("/article/modify")
+	public String showModify(Model model, int id) {
+		Article article = articleService.getArticle(id);
+		model.addAttribute("article", article);
+		
+		return "article/modify";
+	}
+	
+	@RequestMapping("/article/doModify")
+	public String doModify(Model model, @RequestParam Map<String, Object> param) {
+		Map<String, Object> rs = articleService.modify(param);	
+		
+		String redirectUrl = "/article/detail?id=" + rs.get("id");		
+		model.addAttribute("jsAlertMsg", rs.get("msg"));
+		model.addAttribute("jsLocationReplaceUrl", redirectUrl);
+		
+		return "redirect";
+	}
+
+	@RequestMapping("/article/doDelete")
+	public String doDelete(Model model, int id) {
+		Map<String, Object> rs = articleService.delete(id);	
+		
+		String redirectUrl = "/article/list";		
+		model.addAttribute("jsAlertMsg", rs.get("msg"));
+		model.addAttribute("jsLocationReplaceUrl", redirectUrl);
+		
+		return "redirect";
+	}
 
 }

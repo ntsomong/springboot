@@ -13,6 +13,14 @@ public interface ArticleDao {
 	List<Article> getArticles();
 
 	void write(Map<String, Object> param);
+
+	Article getArticle(int id);
+
+	void modify(Map<String, Object> param);
+
+	void delete(int id);
+
+	
 	
 
 }

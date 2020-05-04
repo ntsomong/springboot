@@ -55,7 +55,6 @@
 						<td>
 							<input onclick="if ( confirm('${article.id}번 글을 수정하시겠습니까?') == false ) return false;" type="submit" value="수정" />
 							<input onclick="history.back();" type="button" value="취소" /> 
-							
 						</td>
 					</tr>					
 

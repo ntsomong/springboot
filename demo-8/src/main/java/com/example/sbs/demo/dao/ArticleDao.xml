@@ -15,4 +15,27 @@
 		title = #{title},
 		body = #{body}
 	</insert>
+	
+	<!-- Article getArticle(int id) -->
+	<select id="getArticle" resultType="Article">
+		SELECT *
+		FROM article
+		WHERE id = #{id}
+	</select>
+	
+	<!-- void modify(Map<String, Object> param) -->
+	<update id="modify">
+		UPDATE article
+		SET title = #{title},
+		body = #{body}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- void delete(int id) -->
+	<delete id="delete">
+		DELETE
+		FROM article
+		WHERE id = #{id}
+	</delete>
+	
 </mapper>

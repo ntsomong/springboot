@@ -2,10 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<Script>
+<script>
 	var jsAlertMsg = '${jsAlertMsg}';
-
 	if (jsAlertMsg) {
 		alert(jsAlertMsg)
+	}
+
+	var jsHistoryBack = '${jsHistoryBack}' == 'true';
+	if (jsHistoryBack) {
+		history.back();
+	}
+	
+	var jsLocationReplaceUrl = '${jsLocationReplaceUrl}';
+	if (jsLocationReplaceUrl) {
+		location.replace(jsLocationReplaceUrl);	
 	}	
-</Script>
+</script>

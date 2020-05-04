@@ -29,9 +29,40 @@ public class ArticleServiceImpl implements ArticleService {
 		int id = ((BigInteger) param.get("id")).intValue();
 		
 		Map<String, Object> rs = new HashMap<String, Object>();
-		rs.put("result code", "S-1");
+		rs.put("resultCode", "S-1");
 		rs.put("id", id);
 		rs.put("msg", id+"번 게시글이 추가되었습니다.");
+		
+		return rs;
+	}
+
+	@Override
+	public Article getArticle(int id) {
+		return articleDao.getArticle(id);
+	}
+
+	@Override
+	public Map<String, Object> modify(Map<String, Object> param) {
+		articleDao.modify(param);
+		
+		int id = Integer.parseInt((String) param.get("id"));
+		
+		Map<String, Object> rs = new HashMap<String, Object>();
+		rs.put("resultCode", "S-1");
+		rs.put("id", id);
+		rs.put("msg", id+"번 게시글이 변경되었습니다.");
+		
+		return rs;
+	}
+
+	@Override
+	public Map<String, Object> delete(int id) {
+		articleDao.delete(id);
+		
+		Map<String, Object> rs = new HashMap<String, Object>();
+		rs.put("resultCode", "S-1");
+		rs.put("id", id);
+		rs.put("msg", id+"번 게시글이 삭제되었습니다.");
 		
 		return rs;
 	}

@@ -6,7 +6,7 @@
 
 <%@ include file="../part/head.jspf" %>
 
-	<div class="con table-box">
+	<div class="con table-box form form-type-1">
 		<table>
 			<colgroup>
 				<col width="100" />
@@ -20,6 +20,15 @@
 					<th>내용</th>
 					<td>${article.bodyForPrint}</td>
 				</tr>
+				<tr>
+					<th>비고</th>
+					<td>
+						<a href="./modify?id=${article.id}"><input type="button" value="수정" /></a> 
+						<a href="./doDelete?id=${article.id}" onclick="if ( confirm('정말로 삭제하시겠습니까?') == false ) return false;">
+							<input type="button" value="삭제" /></a>
+					</td>
+				</tr>
+				
 			</tbody>
 		</table>
 	</div>

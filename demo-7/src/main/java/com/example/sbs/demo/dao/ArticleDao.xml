@@ -3,12 +3,6 @@
 
 <mapper namespace="com.example.sbs.demo.dao.ArticleDao">
 
-	<select id="getArticle" resultType="Article">
-		SELECT *
-		FROM article
-		WHERE id = #{ID}
-	</select>
-
 	<select id="getArticles" parameterType="map" resultType="Article">
 		SELECT id, regDate, title, body
 		FROM article
@@ -21,6 +15,12 @@
 		title = #{title},
 		body = #{body}
 	</insert>
+	
+	<select id="getArticle" resultType="Article">
+		SELECT *
+		FROM article
+		WHERE id = #{ID}
+	</select>
 	
 	<delete id="remove">
 		DELETE  
